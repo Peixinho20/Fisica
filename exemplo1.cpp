@@ -7,6 +7,10 @@
 int main(void) {/*inicio do programa*/
 	int eps; /*vai cumprir o papel de armazenar valores aleatórios*/
 	int i;
+	int n;
+	
+	printf ("Entre com o numero de sorteios: ");
+	scanf("%d", &n);
 	
 	/* srand garante modificar a semente de geração de numeros aleatório diferentes, com horário do relogio do computador. Se não usar srand sempre será usado a mesma sequencia de numeros com os mesmos resultados */
 	srand(time(NULL)); 
@@ -15,7 +19,7 @@ int main(void) {/*inicio do programa*/
 	/*a função rand() gera inteiro entre 0 e a constante do RAND_MAX*/
 	printf("RAND_MAX: %d\n", RAND_MAX);
 
-	for (i=0; i<10; i++){
+	for (i=0; i<n; i++){
 		eps = rand();
 		if (eps < RAND_MAX/10){
 			printf ("\teps=%5d menor que RAND_MAX/10\n",eps);

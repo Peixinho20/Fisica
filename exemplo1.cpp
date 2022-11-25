@@ -5,7 +5,7 @@
 #include <time.h>
 
 int main(void) {/*inicio do programa*/
-	int eps; /*vai cumprir o papel de armazenar valores aleatórios*/
+	float eps; /*vai cumprir o papel de armazenar valores aleatórios*/
 	int i;
 	int n;
 	
@@ -20,15 +20,15 @@ int main(void) {/*inicio do programa*/
 	printf("RAND_MAX: %d\n", RAND_MAX);
 
 	for (i=0; i<n; i++){
-		eps = rand();
-		if (eps < RAND_MAX/10){
-			printf ("\teps=%5d menor que RAND_MAX/10\n",eps);
-		}else if (eps<RAND_MAX/2) {
+		eps = rand()*1.0/RAND_MAX;
+		if (eps < 0.1){
+			printf("\t(%d) eps=%5.3f menor que 0.1\n",i,eps);
+		}else if (eps<0.5) {
 			 /* \ (contra barra) garante que terá uma tabulação de oito espaços*/
-			printf("\teps=%5d menor que RAND_MAX/2\n",eps);
+			printf("\t(%d) eps=%5.3f menor que 0.5\n",i,eps);
 		}else {
 			/*Garante que será impresso um num inteiro com cinco algarismos*/
-			printf("\teps=%5d\n",eps);	
+			printf("\t(%d) eps=%5.3f\n",i,eps);	
 		}
 	}
 	return 0;

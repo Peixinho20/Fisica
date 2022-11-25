@@ -36,8 +36,9 @@ int main(void) {/*inicio do programa*/
 			//printf("\t(%d) eps=%5.3f\n",i,eps);	
 		}
 	}
-	printf("P(a)=%d em %d\n",a*1.0/n);
-	printf("P(b)=%d em %d\n",b*1.0/n);
-	printf("P(c)=%d em %d\n",c*1.0/n);
+	printf("P(a)=%f \n",a*1.0/n);
+	printf("P(b)=%f \n",b*1.0/n);
+	printf("P(c)=%f \n",c*1.0/n);
+
 	return 0;
 }/*fim do programa*/

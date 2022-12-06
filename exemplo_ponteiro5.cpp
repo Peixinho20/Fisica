@@ -36,7 +36,7 @@ int main(void) {
 		}
 	for ( j=0; j<l; j++ )
 		free(mat[j]);
-		free(mat);
+	free(mat);
 	}
 	return 0;
 }

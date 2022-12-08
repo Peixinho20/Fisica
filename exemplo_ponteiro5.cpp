@@ -6,7 +6,8 @@
 
 int main(void) {
 	float irand_max = 1.0/RAND_MAX;
-	float **mat; /* ponteiro */
+	float **mat; /* ponteiro. ponteiro bidimensional ou ponteiro de ponteiros
+	*/
 	int i, j, k;/* contadores */
 	int l, c; /* dimensoes de mat */
 

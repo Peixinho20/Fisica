@@ -6,27 +6,26 @@
 typedef struct {
    char   simb[6];
    double Eb, rs;
-   double coef[6]; 
+   double coef[6];
 } subnivel;
 
 typedef struct {
-   char   simb[3];
-   int    Z;
-   double A, rho;
-   double coer[6], incoer[6];
-   subnivel sn;
+   char     simb[3];
+   int      Z;
+   double   A, rho;
+   double   coer[6], incoer[6];
+   subnivel *sn;
 } dbase;
 
 int main(void) {
    FILE  *fp;
    char   lixo[128];
    int    pos;
-   int    i;
+   int    i, ns;
 
    dbase    db;
-   subnivel sn;
 
-   fp = fopen("./database/H.MU","rt");
+   fp = fopen("/home/administrador/Documentos/Camila/Fisica/database/AG.MU","rt");
    if (fp==NULL) {
       printf("Problema ao acessar o arquivo!!!\n");
       exit(0);
@@ -52,15 +51,30 @@ int main(void) {
    fgets( lixo, 127, fp );
    //printf("lixo: %s\n",lixo);
 
-   fscanf(fp," %s %lf %lf ",sn.simb,&sn.Eb,&sn.rs);
-   for ( i=0; i<6; i++ ) fscanf(fp," %lf ",&sn.coef[i]);
-
-   printf("Simb: %s\tEb: %lf\trs: %lf\n",sn.simb,sn.Eb,sn.rs);
-   for ( i=0; i<6; i++ ) printf(" %e ",sn.coef[i]);   printf("\n");
-
-
    pos = ftell(fp);
    printf("pos: %d\n",pos);
+
+   ns = 0;
+   for (;;) {
+      ns++;
+      fgets( lixo, 127, fp );
+      if (lixo[0]=='g') break;
+   }
+   ns /= 3;
+   printf("ns: %d\n",ns);
+
+	//db.sn = (subnivel*) malloc(ns*sizeof(subnivel));
+   db.sn = (subnivel*) new subnivel[ns];
+
+	//reposicionador do ponteiro. SEEK_SET aqui o é inicio do arquivo
+	fseek(fp,pos,SEEK_SET); //(nome arquivo, long int, origem)
+
+//   fscanf(fp," %s %lf %lf ",db.sn.simb,&db.sn.Eb,&db.sn.rs);
+//   for ( i=0; i<6; i++ ) fscanf(fp," %lf ",&db.sn.coef[i]);
+
+//   printf("Simb: %s\tEb: %lf\trs: %lf\n",db.sn.simb,db.sn.Eb,db.sn.rs);
+//   for ( i=0; i<6; i++ ) printf(" %e ",db.sn.coef[i]);   printf("\n");
+
 
    fclose(fp);
    return 0;

@@ -1,9 +1,6 @@
 Ac     Z      A      rho
  89        227.00         1.0070E+01
 
-Energia 
-de ligação
-
 Ac     coherent and incoherent lsf-coefficients
  2.58881E+00 -1.64820E-01  8.55715E-02 -1.21132E-01  1.99316E-02 -1.06303E-03
 -5.32626E+00  1.26019E+00 -1.39495E-01  1.39677E-02 -4.32801E-03  3.52735E-04
